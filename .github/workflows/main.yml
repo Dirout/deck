@@ -1,4 +1,4 @@
-name: Publish 'basic' theme
+name: Publish
 
 on: [push]
 
@@ -10,8 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        # Repository name with owner. For example, actions/checkout
-        # Default: ${{ github.repository }}
         repository: 'MadeByEmil/WDHAN'
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
@@ -22,12 +20,12 @@ jobs:
         dotnet build --configuration Release
     - uses: actions/checkout@v2
       with:
-        path: ./bin/Release/netcoreapp3.1/basic
-    - name: Build 'basic' theme
+        path: ./bin/Release/netcoreapp3.1/project
+    - name: Build project
       run: |
         cd ./bin/Release/netcoreapp3.1
-        cp -avr ./basic/* ./
-        rm -r ./basic/
+        cp -avr ./project/* ./
+        rm -r ./project/
         ./WDHAN build
     - name: Output current directory listing
       run: |
@@ -41,4 +39,4 @@ jobs:
         publish_branch: gh-pages  # deploying branch
         user_name: WDHAN
         user_email: em@emsa.cf
-        commit_message: "Building 'basic' theme"
+        commit_message: "Building WDHAN project"
