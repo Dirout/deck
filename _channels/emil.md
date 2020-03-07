@@ -1,7 +1,7 @@
 ---
 title: Emil
 layout: channel
-source: "http://clappr.io/highline.mp4"
+source: "https://playertest.longtailvideo.com/streams/live-vtt-countdown/live.m3u8"
 mute: true
 autoplay: false
 ---
