@@ -29,6 +29,7 @@
   firebase.analytics();
 
   var provider = new firebase.auth.GithubAuthProvider();
+  provider.addScope('repo');
   provider.setCustomParameters({
     'allow_signup': 'true'
   });
