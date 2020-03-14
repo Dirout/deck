@@ -23,12 +23,11 @@ jobs:
       with:
         path: ./bin/Release/netcoreapp3.1/project
     - name: Create channel
-      run: |
-        echo Creating channel: ${{ github.event.client_payload.displayName }}
-        echo "create ${{ github.event.client_payload.displayName }}" | ./bin/Release/netcoreapp3.1/WDHAN serve ./bin/Release/netcoreapp3.1/project/
+      run:
+        'echo -e "create ${{ github.event.client_payload.displayName }}\n" | ./bin/Release/netcoreapp3.1/WDHAN serve ./bin/Release/netcoreapp3.1/project/'
     - name: Output current directory listing
       run: |
-        cd ./bin/Release/netcoreapp3.1/project/
+        cd ./bin/Release/netcoreapp3.1/project/_channels
         ls -a
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
