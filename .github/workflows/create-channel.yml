@@ -32,4 +32,5 @@ jobs:
     - name: Deploy
       uses: stefanzweifel/git-auto-commit-action@v4.1.1
       with:
-        commit_message: "Creating channel: ${{ github.event.client_payload.displayName }}"
+        repository: './bin/Release/netcoreapp3.1/project/'
+        commit_message: 'Creating channel: ${{ github.event.client_payload.displayName }}'
