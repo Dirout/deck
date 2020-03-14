@@ -9,6 +9,12 @@
     signInSuccessUrl: '{{ site.url }}',
     signInOptions: [
       firebase.auth.GithubAuthProvider.PROVIDER_ID
+      scopes: [
+        'repo'
+      ],
+      customParameters: {
+        allow_signup: 'true'
+      }
     ],
     // tosUrl and privacyPolicyUrl accept either url string or a callback
     // function.
