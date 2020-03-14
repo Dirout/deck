@@ -33,4 +33,5 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v4.1.1
       with:
         repository: './bin/Release/netcoreapp3.1/project/'
+        commit_user_name: 'WDHAN'
         commit_message: 'Creating channel: ${{ github.event.client_payload.displayName }}'
