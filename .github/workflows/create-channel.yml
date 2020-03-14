@@ -23,11 +23,9 @@ jobs:
       with:
         path: ./bin/Release/netcoreapp3.1/project
     - name: Create channel
-      run: |
-        cd ./bin/Release/netcoreapp3.1'
-        echo Creating channel: ${{ github.event.client_payload.displayName }}
       run:
-        'echo "create ${{ github.event.client_payload.displayName }}" | ./WDHAN serve ./bin/Release/netcoreapp3.1/project/"'
+        'echo Creating channel: ${{ github.event.client_payload.displayName }}''
+        'echo "create ${{ github.event.client_payload.displayName }}" | ./WDHAN serve ./bin/Release/netcoreapp3.1/project/''
     - name: Output current directory listing
       run: |
         cd ./bin/Release/netcoreapp3.1/project/
