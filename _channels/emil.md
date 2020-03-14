@@ -5,5 +5,5 @@ source: "https://playertest.longtailvideo.com/streams/live-vtt-countdown/live.m3
 mute: true
 autoplay: false
 ---
-{% include player.html %}
+{% inc player.html %}
 <h2><a href="https://emsa.cf/">Contact me</a></h2>
