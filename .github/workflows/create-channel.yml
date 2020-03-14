@@ -38,7 +38,6 @@ jobs:
         # The name of the user that will be displayed as the author of the commit
         # Default: author of the commit that triggered the run
         author_name: WDHAN
-        author: WDHAN
         # The The email of the user that will be displayed as the author of the commit
         # Default: author of the commit that triggered the run
         author_email: em@emsa.cf
@@ -50,7 +49,7 @@ jobs:
         force: true
         # The message for the commit
         # Default: 'Commit from GitHub Actions'
-        message: 'Creating channel: ${{ github.event.client_payload.displayName }}'
+        message: 'Creating channel'
         #  The arguments for the git rm command (see the paragraph below for more info)
         # Default: ''
       env:
