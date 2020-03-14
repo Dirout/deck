@@ -17,7 +17,7 @@ public class ChannelManager
 			var manInput = Console.ReadLine();
 			if(chunkInput(manInput)[0].Equals("create", StringComparison.OrdinalIgnoreCase))
 			{
-				var defaultChannel = "---\ntitle: " + chunkInput(manInput)[1] + "\nlayout: channel\nsource: \"\"\nmute: true\nautoplay: false\n---\n{% include player.html %}";
+				var defaultChannel = "---\ntitle: " + chunkInput(manInput)[1] + "\nlayout: channel\nsource: \"\"\nmute: true\nautoplay: false\n---\n{% inc player.html %}";
 				using (FileStream fs = File.Create("./_channels/" + chunkInput(manInput)[1] + ".md"))
         {
             fs.Write(Encoding.UTF8.GetBytes(defaultChannel), 0, Encoding.UTF8.GetBytes(defaultChannel).Length);
