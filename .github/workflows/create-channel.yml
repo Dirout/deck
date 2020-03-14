@@ -36,8 +36,4 @@ jobs:
         commit_user_name: 'WDHAN'
         commit_message: 'Creating channel: ${{ github.event.client_payload.displayName }}'
     - name: Publish channel
-      run: 'curl -H "Accept: application/vnd.github.everest-preview+json" \
-    -H "Authorization: token ${{ secrets.ACTIONS_DEPLOY_KEY }}" \
-    --request POST \
-    --data '{"event_type": "publish"}' \
-    https://api.github.com/repos/MadeByEmil/deck/dispatches'
+      run: 'curl -H \"Accept: application/vnd.github.everest-preview+json\" \\\r\n    -H \"Authorization: token ${{ secrets.ACTIONS_DEPLOY_KEY }}\" \\\r\n    --request POST \\\r\n    --data '{\"event_type\": \"publish\"}' \\\r\n    https://api.github.com/repos/MadeByEmil/deck/dispatches'
