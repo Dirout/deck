@@ -5,4 +5,4 @@ source: ""
 mute: true
 autoplay: false
 ---
-{% include player.html %}
+{% inc player.html %}
