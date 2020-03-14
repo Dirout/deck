@@ -38,7 +38,7 @@ jobs:
     - name: Publish channel
       run: |
         curl -H "Accept: application/vnd.github.everest-preview+json" \
-        -H "Authorization: token ${{ secrets.ACTIONS_DEPLOY_KEY }}" \
+        -H "Authorization: token ${{ secrets.API_KEY }}" \
         --request POST \
         --data '{"event_type": "publish"}' \
         https://api.github.com/repos/MadeByEmil/deck/dispatches
