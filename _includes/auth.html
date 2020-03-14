@@ -12,30 +12,21 @@
         var uid = user.uid;
         var phoneNumber = user.phoneNumber;
         var providerData = user.providerData;
-        var accountDetails = JSON.stringify({
-            displayName: displayName,
-            email: email,
-            emailVerified: emailVerified,
-            phoneNumber: phoneNumber,
-            photoURL: photoURL,
-            uid: uid,
-            accessToken: accessToken,
-            providerData: providerData
-        }, null, '  ');
         user.getIdToken().then(function(accessToken) {
+            var accountDetails = JSON.stringify({
+                displayName: displayName,
+                email: email,
+                emailVerified: emailVerified,
+                phoneNumber: phoneNumber,
+                photoURL: photoURL,
+                uid: uid,
+                accessToken: accessToken,
+                providerData: providerData
+            }, null, '  ');
             document.getElementById('sign-in-status').textContent = 'Signed in';
             document.getElementById('sign-in').textContent = 'Sign out';
-            document.getElementById('account-details').textContent = JSON.stringify({
-              displayName: displayName,
-              email: email,
-              emailVerified: emailVerified,
-              phoneNumber: phoneNumber,
-              photoURL: photoURL,
-              uid: uid,
-              accessToken: accessToken,
-              providerData: providerData
-            }, null, '  ');
-            document.getElementById("create-channel").setAttribute("onclick", "fetch(\"https://api.github.com/repos/MadeByEmil/deck/dispatches\", {\r\n              body: \"{\\\"event_type\\\": \\\"create-channel\\\", \\\"client_payload\\\": " + document.getElementById('account-details').textContent + "}\",\r\n              headers: {\r\n                Accept: \"application/vnd.github.everest-preview+json\",\r\n                Authorization: \"token \",\r\n                \"Content-Type\": \"application/x-www-form-urlencoded\"\r\n              },\r\n              method: \"POST\"\r\n            });");
+            document.getElementById('account-details').textContent = accountDetails;
+            document.getElementById("create-channel").setAttribute("onclick", "fetch(\"https://api.github.com/repos/MadeByEmil/deck/dispatches\", {\r\n              body: \"{\\\"event_type\\\": \\\"create-channel\\\", \\\"client_payload\\\": " + accountDetails + "}\",\r\n              headers: {\r\n                Accept: \"application/vnd.github.everest-preview+json\",\r\n                Authorization: \"token \",\r\n                \"Content-Type\": \"application/x-www-form-urlencoded\"\r\n              },\r\n              method: \"POST\"\r\n            });");
         });
       } else {
         // User is signed out.
