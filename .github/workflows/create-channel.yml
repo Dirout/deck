@@ -1,6 +1,7 @@
-name: Publish
-
-on: [push]
+name: Create channel
+on:
+  repository_dispatch:
+    types: create-channel
 
 jobs:
   build:
@@ -21,12 +22,12 @@ jobs:
     - uses: actions/checkout@v2
       with:
         path: ./bin/Release/netcoreapp3.1/project
-    - name: Build project
+    - name: Create channel
       run: |
         cd ./bin/Release/netcoreapp3.1
         cp -avr ./project/* ./
         rm -r ./project/
-        ./WDHAN build
+        echo -e " ${{ github.event.client_payload.displayName }}\n" | ./WDHAN serve
     - name: Output current directory listing
       run: |
         cd ./bin/Release/netcoreapp3.1/_site/
@@ -39,4 +40,4 @@ jobs:
         publish_branch: gh-pages  # deploying branch
         user_name: WDHAN
         user_email: em@emsa.cf
-        commit_message: "Building WDHAN project"
+        commit_message: "Creating channel"
