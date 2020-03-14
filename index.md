@@ -4,8 +4,9 @@ layout: default
 ---
 <head>
   <title>{{ page.title }}</title>
-  {% include head.html %}
-  {% include auth.html %}
+  {% inc head.html %}
+  {% inc firebase.html %}
+  {% inc auth.html %}
 </head>
 
 <body>
