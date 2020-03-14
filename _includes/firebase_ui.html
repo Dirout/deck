@@ -8,6 +8,7 @@
   var uiConfig = {
     signInSuccessUrl: '{{ site.url }}',
     signInOptions: [
+    {
       provider: firebase.auth.GithubAuthProvider.PROVIDER_ID,
       scopes: [
         'repo'
@@ -15,6 +16,7 @@
       customParameters: {
         allow_signup: 'true'
       }
+    }
     ],
     // tosUrl and privacyPolicyUrl accept either url string or a callback
     // function.
