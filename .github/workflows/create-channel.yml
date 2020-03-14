@@ -29,7 +29,7 @@ jobs:
     - name: Output current directory listing
       run: |
         cd ./bin/Release/netcoreapp3.1/project/
-        ls
+        ls -a
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
