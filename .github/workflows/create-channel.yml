@@ -30,14 +30,14 @@ jobs:
         echo -e " ${{ github.event.client_payload.displayName }}\n" | ./WDHAN serve
     - name: Output current directory listing
       run: |
-        cd ./bin/Release/netcoreapp3.1/_site/
+        cd ./
         ls
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish_dir: ./bin/Release/netcoreapp3.1/_site/
-        publish_branch: gh-pages  # deploying branch
+        publish_dir: ./
+        publish_branch: master  # deploying branch
         user_name: WDHAN
         user_email: em@emsa.cf
         commit_message: "Creating channel"
