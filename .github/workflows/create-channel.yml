@@ -30,11 +30,36 @@ jobs:
         cd ./bin/Release/netcoreapp3.1/project/_channels
         ls -a
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
+      uses: EndBug/add-and-commit@v4 # You can change this to use a specific version
       with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish_dir: ./bin/Release/netcoreapp3.1/project/
-        publish_branch: master  # deploying branch
-        user_name: WDHAN
-        user_email: em@emsa.cf
-        commit_message: "Creating channel"
+        # The arguments for the git add command (see the paragraph below for more info)
+        # Default: '.'
+        add: '_channels'
+
+        # The name of the user that will be displayed as the author of the commit
+        # Default: author of the commit that triggered the run
+        author_name: WDHAN
+
+        # The The email of the user that will be displayed as the author of the commit
+        # Default: author of the commit that triggered the run
+        author_email: em@emsa.cf
+
+        # The local path to the directory where your repository is located. You should use actions/checkout first to set it up
+        # Default: '.'
+        cwd: './bin/Release/netcoreapp3.1/project/'
+
+        # Whether to use the --force option on git add, in order to bypass eventual gitignores
+        # Default: false
+        force: true
+
+        # The message for the commit
+        # Default: 'Commit from GitHub Actions'
+        message: 'Creating channel: ${{ github.event.client_payload.displayName }}'
+
+        #  The arguments for the git rm command (see the paragraph below for more info)
+        # Default: ''
+        remove: ""
+
+      env:
+        # This is necessary in order to push a commit to the repo
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
