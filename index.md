@@ -8,7 +8,7 @@ layout: default
 </head>
 
 <body>
-
+  {% inc navbar.html %}
   <ul>
   {% for channel in channels.entries %}
   <li><a href="{{ channel.url | prepend: site.url }}">{{ channel.title }}</a></li>
