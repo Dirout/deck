@@ -5,9 +5,9 @@
   {% inc head.html %}
 </head>
 <body>
-<h1>{{ page.title }}</h1>
-<div id="sign-in-status"></div>
-<div id="sign-in"></div>
-<pre id="account-details"></pre>
-{{ content }}
+  {% inc navbar.html %}
+  <h1>{{ page.title }}</h1>
+  {{ content }}
+  {% inc firebase.html %}
+  {% inc auth.html %}
 </body>
