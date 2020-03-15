@@ -8,7 +8,6 @@
   "includes_dir": "_includes",
   "sass_dir": "_sass",
   "collections": [
-    "posts",
     "channels"
   ],
   "include": [
