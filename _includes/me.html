@@ -11,7 +11,7 @@
   function checkChannel()
   {
     fetch('https://api.github.com/repos/MadeByEmil/deck/contents/_channels/' + JSON.parse(document.getElementById('account-details').textContent).providerData[0].uid + '.md', {
-    method: 'POST',
+    method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     }
