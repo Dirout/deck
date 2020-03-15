@@ -1,0 +1,51 @@
+---
+---
+<script>
+  document.getElementById('account-name-header').textContent = JSON.parse(document.getElementById('account-details').textContent).providerData[0].displayName;
+  if(document.getElementById('sign-in-status').textContent === 'Signed out')
+  {
+    window.location.replace("{{ site.url }}/login");
+  }
+</script>
+<script>
+  fetch('https://api.github.com/repos/MadeByEmil/deck/contents/_channels/' + JSON.parse(document.getElementById('account-details').textContent).providerData[0].uid + '.md', {
+  method: 'POST', // or 'PUT'
+  headers: {
+    'Content-Type': 'application/json',
+  }
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    if(data.ok)
+    {
+      console.log('Channel found:\n', data);
+      document.getElementById('create-channel').remove();
+    }
+    else {
+      document.getElementById('source').remove();
+      document.getElementById('mute').remove();
+      document.getElementById('autoplay').remove();
+    }
+  })
+  .catch((error) => {
+    console.error('Error in GitHub API request:\n', error);
+    document.getElementById('source').remove();
+    document.getElementById('mute').remove();
+    document.getElementById('autoplay').remove();
+  });
+</script>
+<script>
+var currentCollapsible = document.getElementsByClassName("collapsible");
+
+for (var i = 0; i < currentCollapsible.length; i++) {
+  currentCollapsible[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
