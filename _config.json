@@ -13,7 +13,8 @@
   ],
   "include": [
     "./.htaccess",
-    "./branding/icons/"
+    "./branding/",
+    "./css"
   ],
   "exclude": [],
   "keep_files": [
