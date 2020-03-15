@@ -11,11 +11,8 @@ layout: default
 
 <body>
 <div class="user-bar">
-  <div id="sign-in-status"></div>
-  <div id="sign-in"></div>
+  <a id="sign-in" href=""></div>
   <img id="account-image" src=""></img>
-  <pre id="account-details"></pre>
-  <button id="create-channel" onclick="">Create channel</button>
 </div>
   <ul>
   {% for channel in channels.entries %}
