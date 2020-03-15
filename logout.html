@@ -1,15 +1,20 @@
 ---
 title: logout
 ---
-{% inc firebase.html %}
-<script>
-  window.setTimeout(logout, 750);
-  function logout(){
-    firebase.auth().signOut().then(function() {
-      console.log('Logged out successfully.');
-      window.location.replace("{{ site.url }}");
-    }, function(error) {
-      console.error('Error when attempting to logout.\n', error);
-    });
-  }
-</script>
+<head>
+  <title>Logging out … </title>
+</head>
+<body>
+  {% inc firebase.html %}
+  <script>
+    window.setTimeout(logout, 750);
+    function logout(){
+      firebase.auth().signOut().then(function() {
+        console.log('Logged out successfully.');
+        window.location.replace("{{ site.url }}");
+      }, function(error) {
+        console.error('Error when attempting to logout.\n', error);
+      });
+    }
+  </script>
+</body>
