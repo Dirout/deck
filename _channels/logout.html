@@ -1,0 +1,14 @@
+---
+title: logout
+---
+<script>
+  window.setTimeout(logout, 750);
+  function logout(){
+    firebase.auth().signOut().then(function() {
+      console.log('Logged out successfully.');
+      window.location.replace("{{ site.url }}");
+    }, function(error) {
+      console.error('Error when attempting to logout.\n', error);
+    });
+  }
+</script>

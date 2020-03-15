@@ -1,9 +1,13 @@
 ---
 ---
 <script>
-  if(document.getElementById('sign-in-status').textContent === 'Signed out')
+  window.setTimeout(redirectAnonymous, 750);
+  function redirectAnonymous()
   {
-    window.location.replace("{{ site.url }}/login");
+    if(document.getElementById('sign-in-status').textContent === 'Signed out')
+    {
+      window.location.replace("{{ site.url }}/login");
+    }
   }
 </script>
 <script>

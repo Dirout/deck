@@ -1,6 +1,5 @@
 ---
 title: deck
-layout: default
 ---
 <head>
   <title>{{ page.title }}</title>
