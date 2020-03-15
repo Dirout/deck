@@ -29,7 +29,7 @@
             document.getElementById('sign-in').setAttribute("href", "{{ site.url }}/logout");
             document.getElementById('account-details').textContent = accountDetails;
             document.getElementById('account-image').setAttribute("src", JSON.parse(accountDetails).photoURL);
-            document.getElementById('account-name').textContent = JSON.parse(accountDetails).providerData.uid;
+            document.getElementById('account-name').textContent = JSON.parse(accountDetails).providerData[0].uid;
             //document.getElementById("create-channel").setAttribute("onclick", "fetch(\"https://api.github.com/repos/MadeByEmil/deck/dispatches\", {\r\n              body: \"{\\\"event_type\\\": \\\"create-channel\\\", \\\"client_payload\\\": " + escape(JSON.parse(accountDetails).providerData) + "}\",\r\n              headers: {\r\n                Accept: \"application/vnd.github.everest-preview+json\",\r\n                Authorization: \"token " + escape(JSON.parse(accountDetails).accessToken) + "\",\r\n                \"Content-Type\": \"application/x-www-form-urlencoded\"\r\n              },\r\n              method: \"POST\"\r\n            });");
             document.getElementById("create-channel").setAttribute("onclick", "fetch(\"https://envxhwo2k72c3ck.m.pipedream.net\", {\r\n  body: \"{\\\"client_payload\\\": " + JSON.stringify(JSON.parse(accountDetails).providerData).replace(/\\([\s\S])|(")/g, "\\$1$2") + "}\",\r\n  headers: {\r\n    \"Content-Type\": \"application/json\"\r\n  },\r\n  method: \"POST\"\r\n})");
         });
