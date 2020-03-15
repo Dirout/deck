@@ -5,55 +5,62 @@ title: Settings
   <title id="account-name">{{ page.title }}</title>
   {% inc head.html %}
   <style>
-  .collapsible {
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
-  }
-
-  #account-details {
-    padding: 0 20px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-    background-color: #f1f1f1;
-  }
+    #user-settings > * {
+      padding-bottom: 12px;
+    }
+    #settings-account > * {
+      padding-bottom: 8px;
+      display: block;
+    }
+    body {
+      background-color: whitesmoke;
+    }
   </style>
 </head>
 
 <body>
   <p id="sign-in-status" style="display: none;"></p>
   <p id="sign-in" style="display: none;"><p>
-  <div class="settings-account">
-    <h1>Settings</h1>
-    <a href="https://github.com/settings/profile"><img id="account-image" src=""></img></a>
-    <p id="account-email"></p>
+
+  <div id="cover">
+    <img class="rotate-center" id="cover-image" src="{{ site.url }}/branding/regular/logo.svg"></img>
   </div>
-<div class="user-settings">
-  <button class="collapsible">Account details</button>
-  <pre id="account-details"></pre>
 
-  <button id="create-channel" onclick="">Create channel</button>
+  <div class="wrapper">
+    <div id="settings-account">
+      <h1 id="account-header">You</h1>
+      <a href="https://github.com/settings/profile"><img class="big" id="account-image" src=""></img></a>
+      <strong id="username"></strong>
+      <p class="small" id="account-email"></p>
+      <button class="btn" id="create-channel" onclick="" style="visibility: hidden;">Create channel</button>
+    </div>
 
-  <h2>Channel settings</h2>
-
-  <label for="source">HLS source:</label>
-  <input type="text" id="source" name="source">
-  <br />
-  <label for="source">Channel description:</label>
-  <input type="text" id="description" name="description">
-  <br />
-  <label>Mute stream on play</label>
-  <label class="switch">
-    <input type="checkbox">
-    <span class="slider round"></span>
-  </label>
-  <br />
-  <label>Autoplay stream</label>
-  <label class="switch">
-    <input type="checkbox">
-    <span class="slider round"></span>
-  </label>
+  <div id="user-settings">
+    <h3 id="settings-header">Channel settings</h3>
+    <div id="channel-settings" style="visibility: hidden;">
+      <label for="source">HLS source:</label>
+      <input type="text" id="source" name="source">
+      <br />
+      <label for="source">Channel description:</label>
+      <input type="text" id="description" name="description">
+      <br />
+      <label>Mute stream on play</label>
+      <input type="checkbox" checked data-toggle="toggle">
+      <br />
+      <label>Autoplay stream</label>
+      <input type="checkbox" checked data-toggle="toggle">
+      <br />
+      <button class="btn" id="save-settings" onclick="">Save</button>
+    </div>
+    <hr />
+    <h3>Danger</h3>
+    <div id="dangerous-actions">
+      <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#account-details">Show account data</button>
+      <pre id="account-details" class="collapse"></pre>
+      <br />
+      <button class="btn btn-danger" id="delete-channel" onclick="" style="visibility: hidden;">Delete channel</button>
+    </div>
+  </div>
 </div>
 {% inc firebase.html %}
 {% inc auth.html %}

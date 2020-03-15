@@ -3,8 +3,10 @@ title: logout
 ---
 <head>
   <title>Logging out … </title>
+  {% inc head.html %}
 </head>
 <body>
+  <h1 class="centered">Logging out … </h1>
   {% inc firebase.html %}
   <script>
     window.setTimeout(logout, 750);

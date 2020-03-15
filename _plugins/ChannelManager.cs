@@ -26,6 +26,13 @@ public class ChannelManager
 				}
 			}
 		}
+		else if(channelCommand.Equals("delete", StringComparison.OrdinalIgnoreCase))
+		{
+			if(File.Exists("./_channels/" + chunkInput(manInput)[1] + ".md"))
+			{
+				File.Delete("./_channels/" + chunkInput(manInput)[1] + ".md");
+			}
+		}
 		else if(channelCommand.Equals("modify", StringComparison.OrdinalIgnoreCase))
 		{
 			var commandOptions = getCommandOptions(chunkInput(manInput), 2);
