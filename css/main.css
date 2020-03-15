@@ -141,11 +141,6 @@ textarea
   position: absolute;
 }
 
-#dangerous-actions > *
-{
-  margin-top: 12px;
-}
-
 #cover
 {
   background-color: white;
@@ -166,4 +161,20 @@ textarea
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#dangerous-actions > *
+{
+  margin-top: 12px;
+}
+
+#user-settings > *
+{
+  padding-bottom: 12px;
+}
+
+#settings-account > *
+{
+  padding-bottom: 8px;
+  display: block;
 }
