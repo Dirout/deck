@@ -44,17 +44,17 @@ layout: default
   <label for="source">Channel description:</label>
   <input type="text" id="description" name="description">
   <br />
-  <label for="mute">Start playing stream muted?</label>
-  <select id="mute">
-    <option value="true">Yes</option>
-    <option value="false">No</option>
-  </select>
+  <label>Mute stream on play</label>
+  <label class="switch">
+    <input type="checkbox">
+    <span class="slider round"></span>
+  </label>
   <br />
-  <label for="autoplay">Autoplay stream?</label>
-  <select id="autoplay">
-    <option value="true">Yes</option>
-    <option value="false">No</option>
-  </select>
+  <label>Autoplay stream</label>
+  <label class="switch">
+    <input type="checkbox">
+    <span class="slider round"></span>
+  </label>
 </div>
 {% inc firebase.html %}
 {% inc auth.html %}
