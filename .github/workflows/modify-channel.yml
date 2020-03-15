@@ -1,0 +1,44 @@
+name: Modify channel
+on:
+  repository_dispatch:
+    types: modify-channel
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        repository: 'MadeByEmil/WDHAN'
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.100
+    - name: Build with dotnet
+      run: |
+        dotnet build --configuration Release
+    - uses: actions/checkout@v2
+      with:
+        path: ./bin/Release/netcoreapp3.1/project
+    - name: Modify channel
+      run:
+        'echo -e "modify ${{ github.event.client_payload.uid }} ${{ github.event.frontmatter }}\n" | ./bin/Release/netcoreapp3.1/WDHAN serve ./bin/Release/netcoreapp3.1/project/'
+    - name: Output current directory listing
+      run: |
+        cd ./bin/Release/netcoreapp3.1/project/_channels
+        ls -a
+    - name: Deploy
+      uses: stefanzweifel/git-auto-commit-action@v4.1.1
+      with:
+        repository: './bin/Release/netcoreapp3.1/project/'
+        commit_user_name: 'WDHAN'
+        commit_message: 'Modifying channel: ${{ github.event.client_payload.uid }}'
+    - name: Publish channel
+      run: |
+        curl -H "Accept: application/vnd.github.everest-preview+json" \
+        -H "Authorization: token ${{ secrets.API_KEY }}" \
+        --request POST \
+        --data '{"event_type": "publish"}' \
+        https://api.github.com/repos/MadeByEmil/deck/dispatches
