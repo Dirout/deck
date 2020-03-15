@@ -14,27 +14,41 @@ public class ChannelManager
 		Console.WriteLine("Channel manager is ready.");
 		var manInput = Console.ReadLine();
 		var channelCommand = chunkInput(manInput)[0];
-		var commandOptions = getCommandOptions(chunkInput(manInput));
 		if(channelCommand.Equals("create", StringComparison.OrdinalIgnoreCase))
 		{
-			if(!File.Exists("./_channels/" + commandOptions + ".md"))
+			var commandOptions = getCommandOptions(chunkInput(manInput), 2);
+			if(!File.Exists("./_channels/" + chunkInput(manInput)[1] + ".md"))
 			{
 				var defaultChannel = "---\ntitle: " + commandOptions + "\nlayout: channel\nsource: \"\"\nmute: true\nautoplay: false\n---\n{% inc player.html %}";
-				using (FileStream fs = File.Create("./_channels/" + commandOptions + ".md"))
+				using (FileStream fs = File.Create("./_channels/" + chunkInput(manInput)[1] + ".md"))
 				{
 						fs.Write(Encoding.UTF8.GetBytes(defaultChannel), 0, Encoding.UTF8.GetBytes(defaultChannel).Length);
 				}
 			}
 		}
+		else if(channelCommand.Equals("modify", StringComparison.OrdinalIgnoreCase))
+		{
+			var commandOptions = getCommandOptions(chunkInput(manInput), 2);
+			string channelContents = "";
+			for(int i = 6; i < File.ReadAllLines("./_channels/" + chunkInput(manInput)[1] + ".md").Length; i++)
+			{
+				channelContents += File.ReadAllLines("./_channels/" + chunkInput(manInput)[1] + ".md")[i];
+			}
+			channelContents = commandOptions + channelContents;
+			using (FileStream fs = File.Create("./_channels/" + chunkInput(manInput)[1] + ".md"))
+			{
+					fs.Write(Encoding.UTF8.GetBytes(channelContents), 0, Encoding.UTF8.GetBytes(channelContents).Length);
+			}
+		}
 	}
-	public static string getCommandOptions(string[] chunkedInput)
+	public static string getCommandOptions(string[] chunkedInput, int initial)
 	{
 		string commandOptions = "";
-		for(int i = 1; i < chunkedInput.Length; i++)
+		for(int i = initial; i < chunkedInput.Length; i++)
 		{
-			commandOptions += chunkedInput[i];
+			commandOptions += " " + chunkedInput[i];
 		}
-		return commandOptions;
+		return commandOptions.Trim();
 	}
 	public static string[] chunkInput(string input)
 	{
