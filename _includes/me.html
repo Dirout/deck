@@ -29,12 +29,6 @@
         for (i = 0; i < document.getElementsByTagName("input").length; i++) {
           document.getElementsByTagName("input")[i].remove();
         }
-        for (i = 0; i < document.getElementsByTagName("select").length; i++) {
-          document.getElementsByTagName("select")[i].remove();
-        }
-        for (i = 0; i < document.getElementsByTagName("option").length; i++) {
-          document.getElementsByTagName("option")[i].remove();
-        }
       }
     })
     .catch((error) => {
@@ -45,12 +39,7 @@
       for (i = 0; i < document.getElementsByTagName("input").length; i++) {
         document.getElementsByTagName("input")[i].remove();
       }
-      for (i = 0; i < document.getElementsByTagName("select").length; i++) {
-        document.getElementsByTagName("select")[i].remove();
-      }
-      for (i = 0; i < document.getElementsByTagName("option").length; i++) {
-        document.getElementsByTagName("option")[i].remove();
-      }
+      document.getElementById('create-channel').remove();
     });
   };
 </script>
