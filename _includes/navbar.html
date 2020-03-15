@@ -16,7 +16,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <a id="sign-in" href="" class="btn btn-danger navbar-btn" style="margin-right: 8px"></a>
-      <li class="dropdown">
+      <li class="dropdown" id="user-dropdown" style="visibility: hidden;">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><img id="account-image" src=""></img>
         <p class="small" id="account-name"></p>
         <span class="caret"></span></a>
@@ -28,3 +28,16 @@
     </ul>
   </div>
 </nav>
+<script>
+  window.setTimeout(showPage, 750);
+  function showPage()
+  {
+    if(document.getElementById('sign-in-status').textContent === 'Signed out')
+    {
+      document.getElementById('user-dropdown').remove();
+    }
+    else {
+      document.getElementById('user-dropdown').style.visibility = 'visible';
+    }
+  }
+</script>
