@@ -136,6 +136,11 @@ textarea
   padding-left: 24px;
 }
 
+#dangerous-actions
+{
+  position: absolute;
+}
+
 #dangerous-actions > *
 {
   margin-top: 12px;
