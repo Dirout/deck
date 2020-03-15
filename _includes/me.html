@@ -23,7 +23,7 @@
     .then((response) => {
       if(response.ok)
       {
-        console.log('Channel found:\n', response.json);
+        console.log('Channel found:\n', response.json());
         document.getElementById('create-channel').remove();
       }
       else {
