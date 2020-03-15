@@ -22,16 +22,34 @@
         document.getElementById('create-channel').remove();
       }
       else {
-        document.getElementById('source').remove();
-        document.getElementById('mute').remove();
-        document.getElementById('autoplay').remove();
+        for (i = 0; i < document.getElementsByTagName("label").length; i++) {
+          document.getElementsByTagName("label")[i].remove();
+        }
+        for (i = 0; i < document.getElementsByTagName("input").length; i++) {
+          document.getElementsByTagName("input")[i].remove();
+        }
+        for (i = 0; i < document.getElementsByTagName("select").length; i++) {
+          document.getElementsByTagName("select")[i].remove();
+        }
+        for (i = 0; i < document.getElementsByTagName("option").length; i++) {
+          document.getElementsByTagName("option")[i].remove();
+        }
       }
     })
     .catch((error) => {
       console.error('Error in GitHub API request:\n', error);
-      document.getElementById('source').remove();
-      document.getElementById('mute').remove();
-      document.getElementById('autoplay').remove();
+      for (i = 0; i < document.getElementsByTagName("label").length; i++) {
+        document.getElementsByTagName("label")[i].remove();
+      }
+      for (i = 0; i < document.getElementsByTagName("input").length; i++) {
+        document.getElementsByTagName("input")[i].remove();
+      }
+      for (i = 0; i < document.getElementsByTagName("select").length; i++) {
+        document.getElementsByTagName("select")[i].remove();
+      }
+      for (i = 0; i < document.getElementsByTagName("option").length; i++) {
+        document.getElementsByTagName("option")[i].remove();
+      }
     });
   };
 </script>
