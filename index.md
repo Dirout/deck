@@ -12,6 +12,7 @@ layout: default
   <a id="sign-in" href=""></div>
   <p id="sign-in-status" style="display: none;"></p>
   <p id="account-details" style="display: none;"></p>
+  <p id="create-channel" style="display: none;"></p>
   <a href="{{ site.url }}/me"><img id="account-image" src=""></img></a>
   <p id="account-name"></p>
 </div>
