@@ -12,7 +12,7 @@ layout: default
 <body>
 <div class="user-bar">
   <a id="sign-in" href=""></div>
-  <img id="account-image" src=""></img>
+  <a href="{{ site.url }}/me"><img id="account-image" src=""></img></a>
 </div>
   <ul>
   {% for channel in channels.entries %}

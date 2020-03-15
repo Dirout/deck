@@ -26,7 +26,7 @@
             }, null, '  ');
             document.getElementById('sign-in-status').textContent = 'Signed in';
             document.getElementById('sign-in').textContent = 'Sign out';
-            document.getElementById('sign-in').setAttribute("href", "/logout");
+            document.getElementById('sign-in').setAttribute("href", "{{ site.url }}/logout");
             document.getElementById('account-details').textContent = accountDetails;
             document.getElementById('account-image').setAttribute("src", JSON.parse(accountDetails).photoURL);
             document.getElementById('account-name').textContent = JSON.parse(accountDetails).providerData.uid;
@@ -37,7 +37,7 @@
         // User is signed out.
         document.getElementById('sign-in-status').textContent = 'Signed out';
         document.getElementById('sign-in').textContent = 'Sign in';
-        document.getElementById('sign-in').setAttribute("href", "/login");
+        document.getElementById('sign-in').setAttribute("href", "{{ site.url }}/login");
         document.getElementById('account-details').textContent = 'null';
       }
     }, function(error) {
