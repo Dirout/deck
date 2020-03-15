@@ -97,7 +97,7 @@ for (var i = 0; i < currentCollapsible.length; i++) {
 }
 </script>
 <script>
-  document.getElementById('account-name-header').textContent = document.getElementById('account-name').textContent;
+  document.getElementById('account-name-header').textContent = JSON.parse(document.getElementById('account-details').textContent).providerData[0].displayName;
   if(document.getElementById('sign-in-status').textContent === 'Signed out')
   {
     window.location.replace("{{ site.url }}/login");
