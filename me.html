@@ -5,8 +5,6 @@ layout: default
 <head>
   <title id="account-name">{{ page.title }}</title>
   {% inc head.html %}
-  {% inc firebase.html %}
-  {% inc auth.html %}
   <style>
   .collapsible {
     cursor: pointer;
@@ -103,4 +101,6 @@ for (var i = 0; i < currentCollapsible.length; i++) {
     window.location.replace("{{ site.url }}/login");
   }
 </script>
+{% inc firebase.html %}
+{% inc auth.html %}
 </body>
