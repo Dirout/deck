@@ -5,8 +5,6 @@ layout: default
 <head>
   <title>{{ page.title }}</title>
   {% inc head.html %}
-  {% inc firebase.html %}
-  {% inc auth.html %}
 </head>
 
 <body>
@@ -19,4 +17,6 @@ layout: default
   <li><a href="{{ channel.url | prepend: site.url }}">{{ channel.title }}</a></li>
   {% endfor %}
   </ul>
+  {% inc firebase.html %}
+  {% inc auth.html %}
 </body>
