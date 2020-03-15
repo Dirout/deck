@@ -1,13 +1,26 @@
 ---
 ---
 <script>
-  window.setTimeout(redirectAnonymous, 750);
-  function redirectAnonymous()
+  window.setTimeout(showPage, 800);
+  function showPage()
   {
     if(document.getElementById('sign-in-status').textContent === 'Signed out')
     {
       window.location.replace("{{ site.url }}/login");
     }
+    else {
+      document.getElementById('cover').remove();
+    }
+  }
+</script>
+<script>
+  window.setTimeout(getUsername, 750);
+  function getUsername()
+  {
+    document.getElementById('username').textContent = JSON.parse(document.getElementById('account-details').textContent).providerData[0].displayName;
+    document.getElementById('username').style.visibility = 'visible';
+    document.getElementById('account-image').style.visibility = 'visible';
+    document.getElementById('account-header').style.visibility = 'visible';
   }
 </script>
 <script>
@@ -24,26 +37,24 @@
       if(response.ok)
       {
         console.log('Channel found:\n', response.json());
+        document.getElementById('channel-settings').style.visibility = 'visible';
+        document.getElementById('delete-channel').style.visibility = 'visible';
+        document.getElementById('settings-header').style.visibility = 'visible';
         document.getElementById('create-channel').remove();
       }
       else {
-        for (i = 0; i < document.getElementsByTagName("label").length; i++) {
-          document.getElementsByTagName("label")[i].remove();
-        }
-        for (i = 0; i < document.getElementsByTagName("input").length; i++) {
-          document.getElementsByTagName("input")[i].remove();
-        }
+        document.getElementById('create-channel').style.visibility = 'visible';
+        document.getElementById('channel-settings').remove();
+        document.getElementById('delete-channel').remove();
+        document.getElementById('settings-header').remove();
       }
     })
     .catch((error) => {
       console.error('Error in GitHub API request:\n', error);
-      for (i = 0; i < document.getElementsByTagName("label").length; i++) {
-        document.getElementsByTagName("label")[i].remove();
-      }
-      for (i = 0; i < document.getElementsByTagName("input").length; i++) {
-        document.getElementsByTagName("input")[i].remove();
-      }
+      document.getElementById('channel-settings').remove();
       document.getElementById('create-channel').remove();
+      document.getElementById('delete-channel').remove();
+      document.getElementById('settings-header').remove();
     });
   };
 </script>
