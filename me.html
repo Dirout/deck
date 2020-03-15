@@ -1,0 +1,105 @@
+---
+title: Settings
+layout: default
+---
+<head>
+  <title id="account-name">{{ page.title }}</title>
+  {% inc head.html %}
+  {% inc firebase.html %}
+  {% inc auth.html %}
+  <style>
+  .collapsible {
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+  }
+
+  #account-details {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+  }
+  </style>
+</head>
+
+<body>
+  <p id="sign-in-status" style="display: none;"></p>
+  <p id="sign-in" style="display: none;"><p>
+  <div class="settings-account">
+    <h1 id="account-name"></h1>
+    <img id="account-image" src=""></img>
+  </div>
+<div class="user-settings">
+  <button class="collapsible">Account details</button>
+  <pre id="account-details"></pre>
+
+  <button id="create-channel" onclick="">Create channel</button>
+
+  <h2>Channel settings</h2>
+
+  <label for="source">HLS source:</label>
+  <input type="text" id="source" name="source">
+  <br />
+  <label for="mute">Start playing stream muted?</label>
+  <select id="mute">
+    <option value="true">Yes</option>
+    <option value="false">No</option>
+  </select>
+  <br />
+  <label for="autoplay">Autoplay stream?</label>
+  <select id="autoplay">
+    <option value="true">Yes</option>
+    <option value="false">No</option>
+  </select>
+</div>
+<script>
+  fetch('https://api.github.com/repos/MadeByEmil/deck/contents/_channels/' + JSON.parse(document.getElementById('account-details').textContent).providerData.uid + '.md', {
+  method: 'POST', // or 'PUT'
+  headers: {
+    'Content-Type': 'application/json',
+  }
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    if(data.ok)
+    {
+      console.log('Channel found:\n', data);
+      document.getElementById('create-channel').remove();
+    }
+    else {
+      document.getElementById('source').remove();
+      document.getElementById('mute').remove();
+      document.getElementById('autoplay').remove();
+    }
+  })
+  .catch((error) => {
+    console.error('Error in GitHub API request:\n', error);
+    document.getElementById('source').remove();
+    document.getElementById('mute').remove();
+    document.getElementById('autoplay').remove();
+  });
+</script>
+<script>
+var currentCollapsible = document.getElementsByClassName("collapsible");
+
+for (var i = 0; i < currentCollapsible.length; i++) {
+  currentCollapsible[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
+<script>
+  if(document.getElementById('sign-in-status').textContent === 'Signed out')
+  {
+    window.location.replace("/login");
+  }
+</script>
+</body>
