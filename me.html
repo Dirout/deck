@@ -26,6 +26,13 @@ title: Settings
     <img class="rotate-center" id="cover-image" src="{{ site.url }}/branding/regular/logo.svg"></img>
   </div>
 
+  <div class="alert alert-warning" role="alert" style="text-align: center">
+    Please note that changes take several minutes to propagate. Be patient.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
   <div class="wrapper">
     <div id="settings-account">
       <h1 id="account-header">You</h1>
@@ -38,10 +45,10 @@ title: Settings
   <div id="user-settings">
     <h3 id="settings-header">Channel settings</h3>
     <div id="channel-settings" style="visibility: hidden;">
-      <label for="source">HLS source:</label>
+      <label for="source">HLS source</label>
       <input type="text" id="source" name="source">
       <br />
-      <label for="source">Channel description:</label>
+      <label for="source">Channel description</label>
       <input type="text" id="description" name="description">
       <br />
       <label>Mute stream on play</label>
