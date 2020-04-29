@@ -1,18 +1,15 @@
----
----
-
 @font-face {
     font-family: 'blackentina_4fregular';
-    src: url('{{ site.url}}/css/fonts/blackentina_4f-webfont.woff2') format('woff2'),
-         url('{{ site.url}}/css/fonts/blackentina_4f-webfont.woff') format('woff');
+    src: url('/css/fonts/blackentina_4f-webfont.woff2') format('woff2'),
+         url('/css/fonts/blackentina_4f-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'blackentina_4fitalic';
-    src: url('{{ site.url}}/css/fonts/blackentina_4f-italic-webfont.woff2') format('woff2'),
-         url('{{ site.url}}/css/fonts/blackentina_4f-italic-webfont.woff') format('woff');
+    src: url('/css/fonts/blackentina_4f-italic-webfont.woff2') format('woff2'),
+         url('/css/fonts/blackentina_4f-italic-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -177,4 +174,15 @@ textarea
 {
   padding-bottom: 8px;
   display: block;
+}
+
+.navbar
+{
+  background-color: #222;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.navbar-brand
+{
+  width: 5%;
 }
