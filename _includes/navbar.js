@@ -1,12 +1,12 @@
 document.write(`
 <header class="navbar navbar-expand navbar-dark sticky-top flex-column flex-md-row">
   <a class="navbar-brand" href="#">
-    <img src="https://raw.githubusercontent.com/MadeByEmil/deck/master/branding/regular/logo.svg" width=100% height=100% />
+    <img src="branding/regular/logo.svg" width=100% height=100% />
   </a>
   <div class="navbar-nav-scroll">
     <ul class="navbar-nav bd-navbar-nav flex-row">
       <li class="nav-item active">
-        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="discover">Discover</a>
