@@ -1,7 +1,7 @@
 document.write(`
 <header class="navbar navbar-expand navbar-dark sticky-top flex-column flex-md-row">
   <a class="navbar-brand" href="#">
-    <img src="" id="navbar-logo" width=100% height=100% />
+    <img src="https://raw.githubusercontent.com/MadeByEmil/deck/master/branding/regular/logo.svg" width=100% height=100% />
   </a>
   <div class="navbar-nav-scroll">
     <ul class="navbar-nav bd-navbar-nav flex-row">
@@ -25,4 +25,3 @@ document.write(`
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 `);
-document.getElementById("navbar-logo").src = window.location.protocol + "//" + window.location.host + "/branding/regular/logo.svg";
