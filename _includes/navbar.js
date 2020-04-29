@@ -1,11 +1,11 @@
 document.write(`
 <header class="navbar navbar-expand navbar-dark sticky-top flex-column flex-md-row">
   <a class="navbar-brand" href="#">
-    <img src="branding/regular/logo.svg" width=100% height=100% />
+    <img src="branding/regular/logo.svg" width=100px height=100% />
   </a>
   <div class="navbar-nav-scroll">
     <ul class="navbar-nav bd-navbar-nav flex-row">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="">Home</a>
       </li>
       <li class="nav-item">
