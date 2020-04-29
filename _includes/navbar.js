@@ -1,7 +1,7 @@
-document.write(` 
+document.write(`
 <header class="navbar navbar-expand navbar-dark flex-column flex-md-row">
   <a class="navbar-brand" href="#">
-    <img src="/branding/regular/logo.svg" width=100% height=100% />
+    <img src="branding/regular/logo.svg" width=100% height=100% />
   </a>
   <div class="navbar-nav-scroll">
     <ul class="navbar-nav bd-navbar-nav flex-row">
