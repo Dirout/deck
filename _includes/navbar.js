@@ -1,6 +1,6 @@
 document.write(`
 <header class="navbar navbar-expand navbar-dark sticky-top flex-column flex-md-row">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="">
     <img src="branding/regular/logo.svg" width=100px height=100% />
   </a>
   <div class="navbar-nav-scroll">
